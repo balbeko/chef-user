@@ -17,10 +17,10 @@
 # limitations under the License.
 #
 
-bag   = node['user']['data_bag']
+bag   = node['users']['data_bag']
 
 # only manage the subset of users defined in node['users']
-Array(node['users']).each do |i|
+Array(node['user']).each do |i|
   u = data_bag_item(bag, i.gsub(/[.]/, '-'))
   username = u['username'] || u['id']
 
