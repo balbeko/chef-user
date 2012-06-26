@@ -21,7 +21,7 @@
 
 def load_current_resource
   @my_home = new_resource.home ||
-    "#{node['user']['home_root']}/#{new_resource.username}"
+    "#{node['users']['home_root']}/#{new_resource.username}"
   @my_shell = new_resource.shell || node['user']['default_shell']
   @manage_home = bool(new_resource.manage_home, node['user']['manage_home'])
   @create_group = bool(new_resource.create_group, node['user']['create_group'])
