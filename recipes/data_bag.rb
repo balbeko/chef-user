@@ -21,9 +21,10 @@ bag   = node['users']['data_bag']
 
 # only manage the subset of users defined in node['users']
 Array(node['user']).each do |i|
+  puts "Node-users #{node['user'].inspect}"
   u = data_bag_item(bag, i.gsub(/[.]/, '-'))
   username = u['username'] || u['id']
-
+  puts "Username: #{username}"
   user_account username do
     %w{comment uid gid home shell password system_user manage_home create_group
         ssh_keys ssh_keygen}.each do |attr|
