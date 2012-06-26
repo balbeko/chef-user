@@ -22,10 +22,10 @@
 def load_current_resource
   @my_home = new_resource.home ||
     "#{node['users']['home_root']}/#{new_resource.username}"
-  @my_shell = new_resource.shell || node['user']['default_shell']
-  @manage_home = bool(new_resource.manage_home, node['user']['manage_home'])
-  @create_group = bool(new_resource.create_group, node['user']['create_group'])
-  @ssh_keygen = bool(new_resource.ssh_keygen, node['user']['ssh_keygen'])
+  @my_shell = new_resource.shell || node['users']['default_shell']
+  @manage_home = bool(new_resource.manage_home, node['users']['manage_home'])
+  @create_group = bool(new_resource.create_group, node['users']['create_group'])
+  @ssh_keygen = bool(new_resource.ssh_keygen, node['users']['ssh_keygen'])
 end
 
 action :create do
